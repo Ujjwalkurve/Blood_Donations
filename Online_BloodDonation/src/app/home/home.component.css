@@ -1,0 +1,21 @@
+.c-item{
+    height: 480px;
+}
+.c-img{
+    height: 100%;
+    object-fit: cover;
+}
+
+#p{
+    background-color: hsla(218, 38%, 18%, 0.931);
+    background-image: radial-gradient(
+        750px circle at 0% 0%, red, transparent 100%
+        
+    ),radial-gradient(
+        750px circle at 100% 100%, red, transparent 100%
+        
+    );
+}
+#carouselExampleCaptions{
+    margin-top: 4%;
+}

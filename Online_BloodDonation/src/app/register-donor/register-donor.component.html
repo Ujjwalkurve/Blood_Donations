@@ -1,0 +1,204 @@
+<div class="container h-50 col-md-6 ">
+<form (ngSubmit) = "onSubmit()"style="background-color:#E6E6FA" #registerDonor="ngForm">
+    <small class="text-danger"><b>{{msg}}</b></small>
+  <div class="row g-0">
+    <div class="col text-center p-2 mb-2 bg-light">
+      <span class="fs-3">Donor Form</span>
+    </div>
+  </div>
+  <div class="row g-3 ">
+    <div class="col form-group p-2 ">
+        <label for="name" class="form-label">Donor Name:</label>
+        <input type="text" class="form-control " placeholder="Enter name" name="Name" [(ngModel)]="donor.name" required 
+        #Name="ngModel"
+        [class.is-invalid]="Name.invalid && Name.touched">
+        <div class="invalid-feedback">Please Enter Name</div>
+       <small class="text-danger" [class.d-none]="Name.valid || Name.untouched"><b></b></small>
+    </div>
+    <div class="col  p-2 ">
+      <div class="form-group">
+        <label for="email">Email Address: <b class="text-danger">*</b></label>
+        <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="donor.email" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+        #email="ngModel"
+        [class.is-invalid]="email.invalid && email.touched">
+        <div class="invalid-feedback">Please Enter Email</div>
+         <small class="text-danger" [class.d-none]="email.valid||email.untouched"></small>
+      </div>
+      
+
+    </div>
+    <div class="row ">
+      <div class="col">
+        <div class="form-group">
+          <label for="bloodGroup">Select your blood group:<b class="text-danger">*</b></label>
+  
+          <select class="form-control form-select" id="bloodGroupSelect"    name="bloodGroup" [(ngModel)]="donor.bloodGroup" required 
+          #bloodGroup="ngModel"
+          [class.is-invalid]="bloodGroup.invalid && bloodGroup.touched">
+          <option value="" disabled selected>Select blood group</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+          </select>
+          <div class="invalid-feedback">Please select a blood group.</div>
+          <small class="text-danger" [class.d-none]="bloodGroup.valid || bloodGroup.untouched"><b></b></small>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="gender">Gender: <b class="text-danger">*</b></label>
+          <select class="form-control" id="sel1" name="gender" [(ngModel)]="donor.gender"
+              #gender="ngModel">
+              <option value="" disabled selected>Select Gender</option>
+                  <option selected>Male</option>
+                  <option>Female</option>
+                  <option>Others</option>
+              </select>
+         <small class="text-danger" [class.d-none]="gender.valid || gender.untouched"><b></b></small>
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col">
+      <!-- <div class="form-group">
+        <label for="age">Age: <b class="text-danger">*</b></label>
+        <input type="number" class="form-control" placeholder="enter your age" name="age" [(ngModel)]="donor.age" required 
+        #age="ngModel"
+        [class.is-invalid]="age.invalid && age.touched">
+       <small class="text-danger" [class.d-none]="age.valid || age.untouched"><b></b></small>
+      </div> -->
+      <div class="form-group">
+        <label for="age">Age: <b class="text-danger">*</b></label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Enter your age"
+          name="age"
+          [(ngModel)]="donor.age"
+          required
+          min="18"
+          max="65"
+          #age="ngModel"
+          [class.is-invalid]="age.invalid && age.touched">
+        <small class="text-danger" [class.d-none]="age.valid || age.untouched">
+          <b *ngIf="age.errors && age.errors['min']">Age must be at least 18.</b>
+          <b *ngIf="age.errors && age.errors['max']">Age must be at most 65.</b>
+        </small>
+      </div>
+      
+      
+      
+
+
+
+    </div>
+
+    <div class="col">
+      <div class="form-group">
+        <label for="weight">Weight: <b class="text-danger">*</b></label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Enter your weight"
+          name="weight"
+          [(ngModel)]="donor.weight"
+          required
+          [min]="45" 
+          #weight="ngModel"
+          [class.is-invalid]="weight.invalid && weight.touched">
+        <small class="text-danger" [class.d-none]="weight.valid || weight.untouched">
+          <b *ngIf="weight.errors && weight.errors['min']">Weight must be above 45kg.</b>
+        </small>
+      </div>
+    </div>
+    <!-- <div class="col">
+      <div class="form-group">
+        <label for="weight">Weight: <b class="text-danger">*</b></label>
+        <input type="number" class="form-control" placeholder="enter your weight" name="weight" [(ngModel)]="donor.weight" required 
+        #weight="ngModel"
+        [class.is-invalid]="weight.invalid && weight.touched">
+       <small class="text-danger" [class.d-none]="weight.valid || weight.untouched"><b></b></small>
+      </div>
+    </div> -->
+
+
+
+    
+  </div>
+ <div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="mobileNumber">Mobile Number: <b class="text-danger">*</b></label>
+      <input type="tel" class="form-control" placeholder="enter mobile number"  pattern="[0-9]{10}" required
+      title="Please enter a valid 10-digit mobile number (digits only)."
+       name="mobileNumber" [(ngModel)]="donor.mobileNumber" required 
+      #mobileNumber="ngModel"
+      [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched">
+     <small class="text-danger" [class.d-none]="mobileNumber.valid || mobileNumber.untouched"><b></b></small>
+    </div>
+
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label for="password">Password: <b class="text-danger">*</b></label>
+      <input type="password" class="form-control" placeholder="enter password" name="password" [(ngModel)]="donor.password" required 
+      #password="ngModel"
+      [class.is-invalid]="password.invalid && password.touched">
+      <div *ngIf="password.errors && password.invalid && password.touched">
+      </div>
+    </div>
+  </div>
+ </div>
+
+ <div class="row">
+  <div class="col">
+    <div class="form-group">
+      <label for="confirmPassword">ConfirmPassword: <b class="text-danger">*</b></label>
+      <input type="confirmPassword" class="form-control" placeholder="Re-enter password" name="confirmPassword" [(ngModel)]="donor.confirmPassword" required 
+      #confirmPassword="ngModel"
+      [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched">
+      
+    </div>
+  </div>
+ </div>
+ <div class="row">
+   <div class="col">
+    <div class="form-group">
+      <label for="address">Address: <b class="text-danger">*</b></label>
+      <input type="text" class="form-control" placeholder="enter city" name="address" [(ngModel)]="donor.address" required 
+      #address="ngModel"
+      [class.is-invalid]="address.invalid && address.touched">
+     <small class="text-danger" [class.d-none]="address.valid || address.untouched"><b></b></small>
+    </div>
+   </div>
+   <div class="col">
+    <div class="form-group">
+      <label for="state">State: <b class="text-danger">*</b></label>
+      <input type="text" class="form-control" placeholder="enter state" name="state" [(ngModel)]="donor.state" required 
+      #state="ngModel"
+      [class.is-invalid]="state.invalid && state.touched">
+     <small class="text-danger" [class.d-none]="state.valid || state.untouched"><b></b></small>
+    </div>
+   </div>
+ </div>
+
+  </div>
+  <div class="mb-3 form-check ">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button [disabled]="registerDonor.form.invalid" type="submit" class="btn btn-primary">Register</button>
+  <div class="sign-up  mb-4" style=" text-align: center; ">Already have an Account? <small [routerLink]="['/loginDonor']" style="color: navy; text-align: center; cursor: pointer;"><b> Login here</b></small></div>
+
+</form>
+
+</div>
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>

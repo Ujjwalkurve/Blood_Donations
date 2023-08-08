@@ -1,0 +1,50 @@
+<h2 style="text-align:center">Donor List</h2>
+<h6 class="text-center">you can only see the participated donors</h6>
+  <div class="container">
+    <div class="card">
+    <div class="card-body">
+      <table class = "table table-striped">
+    <thead>
+        <tr >
+            <th >Name</th>
+            <th>Blood Group</th>
+            <th> Address</th>
+            <th> State</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+
+        
+        <tr *ngFor = "let don of donorList |   paginate
+        : {
+            itemsPerPage: 5,
+            currentPage: pagination,
+            totalItems: allDonor
+        }">
+            
+            <td > {{don.name}} </td>
+            <td>{{don.bloodGroup}}</td>
+            <td> {{ don.address}} </td>
+            <td> {{ don.state}} </td>
+            
+           
+
+          <!-- <td> <button type="button" class="btn btn-info" (click)="updateUser(us.userId)">Update</button></td>  
+          <td> <button type="button" class="btn btn-danger"(click)="deleteUser(us.userId)">Delete</button></td>
+          -->
+        </tr>
+      
+    </tbody>
+   
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls
+      (pageChange)="renderPage($event)"
+    ></pagination-controls>
+  </div>
+    </div>
+<div><h5>Find Donor For You</h5> <button  class="btn btn-secondary " routerLink="/loginReceiver" routerLinkActive="active">Find Donor</button></div>
+  </div>
+  </div>
+   

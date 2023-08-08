@@ -1,0 +1,43 @@
+
+<div class="container-fluid justify-content-center ">
+    <div class="container">
+      <div class="user-login-form">
+       <h2 class="textual">Receiver Login</h2>
+       
+        <form (ngSubmit) = "onSubmit()"style="background-color:#E6E6FA" #loginReceiver="ngForm">
+          <small class="text-danger"><b>{{msg}}</b></small>
+          <div class="form-group">
+          <label for="email">Email Address: <b class="text-danger">*</b></label>
+          <input type="email" class="form-control" placeholder="enter email" name="email" [(ngModel)]="receiver.email" required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+          #email="ngModel"
+          [class.is-invalid]="email.invalid && email.touched"
+          > <small class="text-danger" [class.d-none]="email.valid||email.untouched"></small>
+        
+       
+        </div>
+    
+          <div class="form-group">
+            <label for="password">Password: <b class="text-danger">*</b></label>
+            <input type="password" class="form-control" placeholder="enter password" name="password" [(ngModel)]="receiver.password" required 
+            #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched"
+            >
+            <div *ngIf="password.errors && password.invalid && password.touched">
+             
+            </div>
+            
+          </div>
+    
+    
+          <div class="checkbox" style="margin-top: 5px;">
+            <small style="color: gray;"><input type="checkbox" name="remember"> Remember me</small>
+            <!-- <small style="color: navy; margin-left: 42%; cursor: pointer;">forgot password?</small> -->
+          </div>
+          <button [disabled]="loginReceiver.form.invalid" type="submit" class="btn loginbtn">Login</button>
+        </form>
+        <div class="sign-up" style=" text-align: center; margin-top: 10px;">New user ? <small [routerLink]="['/registerReceiver']" style="color: rgba(0, 0, 128, 0.886); text-align: center; cursor: pointer;"><b>Register here</b></small></div>
+       
+       
+      </div>
+        </div>
+      </div>

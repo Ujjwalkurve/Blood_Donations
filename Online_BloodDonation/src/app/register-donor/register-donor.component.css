@@ -1,0 +1,19 @@
+/* div{
+    align-items: center;
+    text-align: left;
+    width:500px;
+} */
+.container{
+    height: 70vh;
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer{
+   
+   
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+}

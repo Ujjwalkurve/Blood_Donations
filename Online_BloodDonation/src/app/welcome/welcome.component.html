@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg  navbar-dark bg-danger navbar-fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Online Blood Donation</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"   routerLink="/awareness" routerLinkActive="active">Awareness</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" >Contact Us</a>
+          </li>
+          
+          
+        </ul>
+      </div> 
+      <button type="button" class="btn btn-danger btn-outline-dark" routerLink="/home" routerLinkActive="active" >Log-out</button>
+    </div>
+  </nav>
+  <div class="text-center">
+    <img src="assets\logo2.png" class=" img rounded" alt="...">
+  </div>
+
+  <div class="container d-grid gap-2 col-3 mx-auto mt-3 ">
+    <div class="row">
+        <div class="col ">
+
+          <div class="card text-center " style="width: 18rem;">
+            <div class="card-body">
+              <h4 class="card-title">Your Profile</h4>
+              <h6>Thank you for being a life-saving hero!</h6>
+              
+              <button id="home"class="btn btn-secondary " (click)="updateDonor()">Edit profile </button>
+              <button id="home" class="btn btn-secondary ms-4" (click)="deleteDonor()">Delete Profile</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div> 
+
+
+
+
